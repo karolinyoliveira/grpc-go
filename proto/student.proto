@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package grpc_poc;
+
+option go_package="pb"; //protocol buffer
+
+message Student {
+    string name = 1;
+    string id = 2;
+}
+
+message CreateStudentRequest {
+    string name = 1;
+}
+
+message CreateStudentResponse {
+    string id = 1;
+    string name = 2;
+}
+
+service StudentService{
+    rpc CreateStudent (CreateStudentRequest) returns (CreateStudentResponse) {};
+}
